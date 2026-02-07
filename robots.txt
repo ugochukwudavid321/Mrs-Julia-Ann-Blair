@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Sitemaps
+Sitemap: https://www.google.com/search?q=https://julieannblairlaw.com/sitemap.xml
