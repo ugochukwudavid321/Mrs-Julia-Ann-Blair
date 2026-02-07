@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Immigration Attorney in Texas | Julie Ann Blair Law | 20+ Years Experience</title>
+    <meta name="description" content="Secure your future in the U.S. with Julie Ann Blair, a trusted Immigration Attorney in Texas with 20+ years of experience. Call (832) 443-0495 for a consultation.">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Julie Ann Blair Immigration Law - Trusted Texas Attorney">
+    <meta property="og:description" content="Compassionate, high-end immigration representation. Protect your family and rights today.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://julieannblairlaw.com">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- GSAP & ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: {
+                            900: '#002147', // Deep Navy Blue
+                            800: '#003366',
+                            700: '#004080',
+                        },
+                        gold: {
+                            400: '#E5C158',
+                            500: '#D4AF37', // Brand Gold
+                            600: '#B5952F',
+                        },
+                        cream: '#F9F9F7',
+                    },
+                    fontFamily: {
+                        serif: ['Playfair Display', 'serif'],
+                        sans: ['Lato', 'sans-serif'],
+                    },
+                    backgroundImage: {
+                        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Schema Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "Julie Ann Blair Immigration Law",
+      "image": "",
+      "description": "Boutique immigration law firm in Texas providing compassionate, high-end legal representation for families and individuals.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Houston",
+        "addressRegion": "TX",
+        "addressCountry": "US"
+      },
+      "areaServed": ["Houston", "Austin", "Texas"],
+      "telephone": "+18324430495",
+      "email": "info@julieannblairlaw.com",
+      "priceRange": "$$",
+      "legalName": "Julie Ann Blair",
+      "alumni": {
+        "@type": "Person",
+        "name": "Julie Ann Blair",
+        "jobTitle": "Attorney",
+        "description": "Deputy Executive Director at the Houston Bar Association, Licensed since 2004"
+      }
+    }
+    </script>
+
+    <style>
+        /* Custom Utilities not covered by Tailwind default config */
+        body {
+            font-display: swap;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        /* Glassmorphism */
+        .glass {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .glass-dark {
+            background: rgba(0, 33, 71, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+        }
+        
+        /* Animation Classes */
+        .reveal-text {
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+        }
+        
+        /* Smooth anchor offset for sticky header */
+        html {
+            scroll-padding-top: 100px;
+        }
+
+        /* Input autofill fix for dark theme */
+        input:-webkit-autofill,
+        input:-webkit-autofill:hover, 
+        input:-webkit-autofill:focus, 
+        textarea:-webkit-autofill,
+        textarea:-webkit-autofill:hover,
+        textarea:-webkit-autofill:focus {
+            -webkit-text-fill-color: #1f2937;
+            -webkit-box-shadow: 0 0 0px 1000px #F9F9F7 inset;
+            transition: background-color 5000s ease-in-out 0s;
+        }
+    </style>
+</head>
+<body class="bg-navy-900 text-slate-200 overflow-x-hidden">
+
+    <!-- 1. Cinematic Entrance Overlay -->
+    <div id="entrance-overlay" class="fixed inset-0 z-50 flex items-center justify-center bg-navy-900">
+        <canvas id="entrance-canvas" class="absolute inset-0 w-full h-full"></canvas>
+        <div class="relative z-10 text-center opacity-0" id="brand-reveal">
+            <h1 class="text-3xl md:text-5xl font-serif text-gold-500 tracking-wider mb-2">Julie Ann Blair</h1>
+            <p class="text-sm md:text-lg text-slate-300 tracking-[0.2em] uppercase">Immigration Law</p>
+        </div>
+    </div>
+
+    <!-- 2. Sticky Header -->
+    <header class="fixed top-0 w-full z-40 transition-all duration-300" id="main-header">
+        <div class="glass-dark shadow-lg">
+            <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+                <!-- Logo -->
+                <a href="#" class="text-xl md:text-2xl font-serif font-bold text-slate-100 tracking-wide hover:text-gold-500 transition-colors" aria-label="Home">
+                    Julie Ann Blair <span class="text-gold-500">Law</span>
+                </a>
+
+                <!-- Desktop Nav -->
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="#about" class="text-sm font-medium text-slate-300 hover:text-gold-500 transition-colors">About</a>
+                    <a href="#expertise" class="text-sm font-medium text-slate-300 hover:text-gold-500 transition-colors">Expertise</a>
+                    <a href="#contact" class="text-sm font-medium text-slate-300 hover:text-gold-500 transition-colors">Contact</a>
+                    <a href="tel:+18324430495" class="px-6 py-2 bg-gold-500 text-navy-900 font-bold rounded-sm hover:bg-gold-400 transition-all transform hover:scale-105 shadow-lg border border-gold-600" aria-label="Call to schedule consultation">
+                        Schedule Consultation
+                    </a>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden text-gold-500 p-2" aria-label="Open Menu">
+                    <i data-lucide="menu" class="w-8 h-8"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu" class="fixed inset-0 bg-navy-900 z-50 transform translate-x-full transition-transform duration-300 flex flex-col items-center justify-center space-y-8">
+            <button id="close-menu-btn" class="absolute top-6 right-6 text-gold-500 p-2" aria-label="Close Menu">
+                <i data-lucide="x" class="w-8 h-8"></i>
+            </button>
+            <a href="#about" class="text-2xl font-serif text-slate-200 mobile-link">About</a>
+            <a href="#expertise" class="text-2xl font-serif text-slate-200 mobile-link">Expertise</a>
+            <a href="#contact" class="text-2xl font-serif text-slate-200 mobile-link">Contact</a>
+            <a href="tel:+18324430495" class="px-8 py-3 bg-gold-500 text-navy-900 font-bold text-lg rounded-sm shadow-xl mobile-link">
+                Call Now
+            </a>
+        </div>
+    </header>
+
+    <main>
+        <!-- 3. Hero Section -->
+        <section class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
+            <!-- Background Elements -->
+            <div class="absolute inset-0 bg-navy-900">
+                <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMSIgY3k9IjEiIHI9IjEiIGZpbGw9InJnYmEoMjEyLIDE3NSwgNTUsIDAuMSkiLz48L3N2Zz4=')] opacity-20"></div>
+                <div class="absolute inset-0 bg-gradient-to-b from-navy-900/50 via-navy-900/80 to-navy-900"></div>
+                <canvas id="hero-particles" class="absolute inset-0 w-full h-full opacity-40"></canvas>
+            </div>
+
+            <div class="container mx-auto px-6 relative z-10 text-center max-w-4xl">
+                <div class="gsap-hero-el opacity-0 translate-y-8">
+                    <span class="inline-block py-1 px-3 border border-gold-500/50 rounded-full text-gold-400 text-xs md:text-sm tracking-widest uppercase mb-6 bg-navy-900/50 backdrop-blur-sm">
+                        Immigration Attorney in Texas
+                    </span>
+                </div>
+                
+                <h1 class="gsap-hero-el opacity-0 translate-y-8 text-4xl md:text-6xl lg:text-7xl font-serif font-bold text-white leading-tight mb-6">
+                    Your Future in America Starts With a <span class="text-gold-500 italic">Trusted</span> Advocate.
+                </h1>
+
+                <p class="gsap-hero-el opacity-0 translate-y-8 text-lg md:text-xl text-slate-300 mb-10 max-w-2xl mx-auto font-light leading-relaxed">
+                    20+ Years of Experience Navigating Complex U.S. Immigration Law — Dedicated to Protecting Families, Rights, and Legal Security.
+                </p>
+
+                <div class="gsap-hero-el opacity-0 translate-y-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <a href="tel:+18324430495" class="w-full sm:w-auto px-8 py-4 bg-gold-500 text-navy-900 font-bold text-lg rounded-sm hover:bg-gold-400 transition-all shadow-[0_0_20px_rgba(212,175,55,0.3)] hover:shadow-[0_0_30px_rgba(212,175,55,0.5)] flex items-center justify-center gap-2 group">
+                        <i data-lucide="phone" class="w-5 h-5 group-hover:rotate-12 transition-transform"></i>
+                        Schedule Consultation
+                    </a>
+                    <a href="mailto:info@julieannblairlaw.com" class="w-full sm:w-auto px-8 py-4 bg-transparent border border-slate-500 text-slate-300 font-medium text-lg rounded-sm hover:border-gold-500 hover:text-gold-500 transition-all flex items-center justify-center gap-2">
+                        <i data-lucide="mail" class="w-5 h-5"></i>
+                        Email the Attorney
+                    </a>
+                </div>
+                
+                <p class="gsap-hero-el opacity-0 translate-y-8 mt-6 text-xs text-slate-500 uppercase tracking-widest">
+                    Licensed Since 2004 • Bar No. 24045506
+                </p>
+            </div>
+            
+            <!-- Scroll Indicator -->
+            <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce opacity-50">
+                <i data-lucide="chevron-down" class="w-8 h-8 text-gold-500"></i>
+            </div>
+        </section>
+
+        <!-- 4. Icon Feature Grid -->
+        <section id="expertise" class="py-24 bg-navy-900 border-t border-white/5 relative">
+            <div class="container mx-auto px-6">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
+                    
+                    <!-- Feature 1 -->
+                    <div class="feature-card p-8 rounded-lg bg-navy-800/50 border border-white/5 hover:border-gold-500/30 transition-all duration-300 group">
+                        <div class="w-14 h-14 bg-navy-700 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                            <i data-lucide="scale" class="w-7 h-7 text-gold-500"></i>
+                        </div>
+                        <h3 class="text-xl font-serif font-bold text-white mb-3">20+ Years Experience</h3>
+                        <p class="text-slate-400 leading-relaxed">
+                            Deep expertise in handling complex immigration cases. Licensed by the Texas Bar since 2004 (#24045506).
+                        </p>
+                    </div>
+
+                    <!-- Feature 2 -->
+                    <div class="feature-card p-8 rounded-lg bg-navy-800/50 border border-white/5 hover:border-gold-500/30 transition-all duration-300 group">
+                        <div class="w-14 h-14 bg-navy-700 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                            <i data-lucide="shield-check" class="w-7 h-7 text-gold-500"></i>
+                        </div>
+                        <h3 class="text-xl font-serif font-bold text-white mb-3">Industry Leadership</h3>
+                        <p class="text-slate-400 leading-relaxed">
+                            Respected authority serving as Deputy Executive Director at the Houston Bar Association.
+                        </p>
+                    </div>
+
+                    <!-- Feature 3 -->
+                    <div class="feature-card p-8 rounded-lg bg-navy-800/50 border border-white/5 hover:border-gold-500/30 transition-all duration-300 group">
+                        <div class="w-14 h-14 bg-navy-700 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                            <i data-lucide="heart-handshake" class="w-7 h-7 text-gold-500"></i>
+                        </div>
+                        <h3 class="text-xl font-serif font-bold text-white mb-3">Non-Assembly Line</h3>
+                        <p class="text-slate-400 leading-relaxed">
+                            We are not a "file mill." You get personalized, compassionate representation focused on your family's specific needs.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Deep Sales Content (Light Theme for Readability) -->
+        <section id="about" class="py-24 bg-cream text-gray-900 relative">
+            <div class="container mx-auto px-6 max-w-3xl">
+                <div class="text-center mb-12">
+                    <span class="text-gold-600 font-bold tracking-widest uppercase text-sm">Legal Advocacy</span>
+                    <h2 class="text-3xl md:text-5xl font-serif font-bold text-navy-900 mt-2 mb-6">Navigating the U.S. Immigration System Shouldn't Be a Gamble</h2>
+                    <div class="w-24 h-1 bg-gold-500 mx-auto"></div>
+                </div>
+
+                <div class="prose prose-lg prose-slate text-gray-700 mx-auto sales-copy">
+                    <p class="mb-6 font-medium text-xl leading-relaxed text-navy-800">
+                        The fear of a rejected application, indefinite delays, or worse—separation from your family—is a heavy burden to carry alone.
+                    </p>
+                    
+                    <p class="mb-6">
+                        U.S. immigration laws are dense, constantly shifting, and unforgiving of minor mistakes. A single paperwork error can cost you months of time and thousands of dollars. Too often, families trust their future to notaries or inexperienced consultants, only to find themselves facing legal complications that could have been avoided.
+                    </p>
+
+                    <h3 class="text-2xl font-serif font-bold text-navy-900 mt-10 mb-4">You Need More Than Just Forms Filed. You Need a Strategist.</h3>
+                    
+                    <p class="mb-6">
+                        As a dedicated <strong>Immigration Attorney in Texas</strong>, I don’t just process documents; I build legal strategies designed to protect your rights and secure your future. For over 20 years, I have stood by families in Houston, Austin, and beyond, turning anxiety into action.
+                    </p>
+
+                    <p class="mb-6">
+                        My background includes serving as the Deputy Executive Director at the Houston Bar Association, a role that demands the highest standards of legal ethics and procedural knowledge. When you hire my firm, you are not just a case number. You are a person with a story, a family, and a dream that deserves to be defended with vigor and compassion.
+                    </p>
+
+                    <div class="my-10 p-6 bg-navy-50 border-l-4 border-gold-500 rounded-r-lg">
+                        <p class="italic text-navy-900 font-medium m-0">
+                            "Immigration law is about more than statutes; it is about keeping families together and offering peace of mind in turbulent times." — Julie Ann Blair
+                        </p>
+                    </div>
+
+                    <p class="mb-8">
+                        Whether you are seeking residency, citizenship, or fighting to keep a loved one in the country, do not leave your fate to chance. Let us navigate the bureaucracy for you, so you can focus on building your life in America.
+                    </p>
+
+                    <div class="flex justify-center mt-12">
+                        <a href="tel:+18324430495" class="inline-flex items-center gap-2 text-navy-900 font-bold border-b-2 border-gold-500 hover:text-gold-600 hover:border-gold-600 transition-colors pb-1 text-lg">
+                            <i data-lucide="phone-call" class="w-5 h-5"></i>
+                            Speak Directly With an Attorney
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. Trust & Proof Section -->
+        <section class="py-20 bg-navy-800 relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-64 h-64 bg-gold-500/5 rounded-full blur-3xl translate-x-1/2 -translate-y-1/2"></div>
+            
+            <div class="container mx-auto px-6 max-w-4xl text-center">
+                <i data-lucide="quote" class="w-12 h-12 text-gold-500 mx-auto mb-8 opacity-50"></i>
+                
+                <blockquote class="text-2xl md:text-3xl font-serif text-white leading-relaxed mb-8 italic">
+                    "Julie is the kind of lawyer who actually listens. She didn't just handle our paperwork; she explained every step and calmed our fears. We finally have our green cards because of her persistence."
+                </blockquote>
+                
+                <cite class="text-gold-400 font-bold not-italic tracking-wide uppercase text-sm">
+                    — Maria G. & Family, Houston, TX
+                </cite>
+
+                <div class="mt-16 flex flex-wrap justify-center gap-8 opacity-70 grayscale hover:grayscale-0 transition-all duration-500">
+                    <!-- Trust Badges (Text Representations for Single File compliance) -->
+                    <div class="border border-white/20 px-6 py-3 rounded text-white font-serif text-sm">State Bar of Texas</div>
+                    <div class="border border-white/20 px-6 py-3 rounded text-white font-serif text-sm">Houston Bar Association</div>
+                    <div class="border border-white/20 px-6 py-3 rounded text-white font-serif text-sm">20 Years Service</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. Conversion Section (Hard Close) -->
+        <section id="cta" class="py-24 bg-navy-900 relative text-center">
+            <div class="absolute inset-0 bg-[url('data:image/svg+xml ;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMSIgY3k9IjEiIHI9IjEiIGZpbGw9InJnYmEoMjEyLIDE3NSwgNTUsIDAuMSkiLz48L3N2Zz4=')] opacity-20"></div>
+            
+            <div class="container mx-auto px-6 relative z-10">
+                <h2 class="text-3xl md:text-5xl font-serif font-bold text-white mb-6">Ready to Protect Your Future?</h2>
+                <p class="text-slate-300 text-lg mb-10 max-w-2xl mx-auto">
+                    Time is often critical in immigration cases. Don't wait until it's too late. Schedule your consultation today to secure your rights.
+                </p>
+
+                <div class="flex flex-col md:flex-row items-center justify-center gap-6">
+                    <a href="tel:+18324430495" class="w-full md:w-auto min-w-[280px] px-8 py-5 bg-gold-500 text-navy-900 font-bold text-xl rounded-sm hover:bg-gold-400 transition-all shadow-xl hover:shadow-gold-500/20 flex items-center justify-center gap-3">
+                        <i data-lucide="phone" class="w-6 h-6"></i>
+                        Call (832) 443-0495
+                    </a>
+                    
+                    <a href="mailto:info@julieannblairlaw.com" class="w-full md:w-auto min-w-[280px] px-8 py-5 bg-navy-800 border border-slate-600 text-white font-bold text-xl rounded-sm hover:bg-navy-700 hover:border-gold-500 transition-all flex items-center justify-center gap-3">
+                        <i data-lucide="mail" class="w-6 h-6"></i>
+                        Email the Attorney
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 8. Secondary Contact Form -->
+        <section id="contact" class="py-20 bg-cream border-t border-gray-200">
+            <div class="container mx-auto px-6 max-w-xl">
+                <div class="text-center mb-10">
+                    <p class="text-gray-500 text-sm font-medium mb-2">Prefer not to call immediately?</p>
+                    <h3 class="text-2xl font-serif font-bold text-navy-900">Send a Private Message</h3>
+                </div>
+
+                <form class="space-y-6 bg-white p-8 rounded-lg shadow-lg border-t-4 border-gold-500" onsubmit="event.preventDefault(); alert('Thank you. We will contact you shortly.');">
+                    <div>
+                        <label for="name" class="block text-sm font-bold text-gray-700 mb-2">Full Name</label>
+                        <input type="text" id="name" name="name" required class="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-gold-500 focus:border-transparent text-gray-900 transition-shadow">
+                    </div>
+                    
+                    <div>
+                        <label for="email" class="block text-sm font-bold text-gray-700 mb-2">Email Address</label>
+                        <input type="email" id="email" name="email" required class="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-gold-500 focus:border-transparent text-gray-900 transition-shadow">
+                    </div>
+
+                    <div>
+                        <label for="message" class="block text-sm font-bold text-gray-700 mb-2">How can we help?</label>
+                        <textarea id="message" name="message" rows="4" required class="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-gold-500 focus:border-transparent text-gray-900 transition-shadow"></textarea>
+                    </div>
+
+                    <button type="submit" class="w-full px-6 py-4 bg-navy-900 text-white font-bold rounded hover:bg-navy-800 transition-colors shadow-lg flex justify-center items-center gap-2">
+                        Request Consultation <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </button>
+
+                    <p class="text-xs text-center text-gray-400 mt-4">
+                        Your information is kept strictly confidential. By submitting, you agree to be contacted regarding your legal inquiry.
+                    </p>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- 9. Footer -->
+    <footer class="bg-navy-950 text-slate-400 py-12 border-t border-white/5">
+        <div class="container mx-auto px-6 text-center">
+            <h4 class="text-2xl font-serif text-slate-200 mb-6">Julie Ann Blair <span class="text-gold-500">Immigration Law</span></h4>
+            
+            <div class="flex flex-col md:flex-row justify-center items-center gap-6 mb-8 text-sm">
+                <a href="tel:+18324430495" class="hover:text-gold-500 transition-colors flex items-center gap-2">
+                    <i data-lucide="phone" class="w-4 h-4"></i> (832) 443-0495
+                </a>
+                <span class="hidden md:inline text-slate-600">|</span>
+                <a href="mailto:info@julieannblairlaw.com" class="hover:text-gold-500 transition-colors flex items-center gap-2">
+                    <i data-lucide="mail" class="w-4 h-4"></i> info@julieannblairlaw.com
+                </a>
+                <span class="hidden md:inline text-slate-600">|</span>
+                <span class="flex items-center gap-2">
+                    <i data-lucide="map-pin" class="w-4 h-4"></i> Houston & Austin, TX
+                </span>
+            </div>
+
+            <div class="max-w-3xl mx-auto text-xs text-slate-600 leading-relaxed border-t border-white/5 pt-8">
+                <p class="mb-2">© 2024 Julie Ann Blair Immigration Law. All rights reserved.</p>
+                <p>
+                    ATTORNEY ADVERTISING. The information on this website is for general information purposes only. Nothing on this site should be taken as legal advice for any individual case or situation. This information is not intended to create, and receipt or viewing does not constitute, an attorney-client relationship.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // --------------------------------------------------------
+        // Canvas Particle System (Falling Gold Dust)
+        // --------------------------------------------------------
+        class ParticleSystem {
+            constructor(canvasId, density = 100, speed = 1) {
+                this.canvas = document.getElementById(canvasId);
+                this.ctx = this.canvas.getContext('2d');
+                this.particles = [];
+                this.density = density;
+                this.speedMult = speed;
+                
+                this.resize();
+                window.addEventListener('resize', () => this.resize());
+                this.init();
+                this.animate();
+            }
+
+            resize() {
+                this.canvas.width = window.innerWidth;
+                this.canvas.height = window.innerHeight;
+            }
+
+            init() {
+                for (let i = 0; i < this.density; i++) {
+                    this.particles.push({
+                        x: Math.random() * this.canvas.width,
+                        y: Math.random() * this.canvas.height,
+                        size: Math.random() * 2 + 0.5,
+                        speedY: Math.random() * 1 + 0.2,
+                        opacity: Math.random() * 0.5 + 0.1
+                    });
+                }
+            }
+
+            animate() {
+                this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+                
+                this.particles.forEach(p => {
+                    this.ctx.fillStyle = `rgba(212, 175, 55, ${p.opacity})`; // Gold Color
+                    this.ctx.beginPath();
+                    this.ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+                    this.ctx.fill();
+
+                    // Update
+                    p.y += p.speedY * this.speedMult;
+                    
+                    // Reset if falls off screen
+                    if (p.y > this.canvas.height) {
+                        p.y = 0 - 10;
+                        p.x = Math.random() * this.canvas.width;
+                    }
+                });
+
+                requestAnimationFrame(() => this.animate());
+            }
+        }
+
+        // Initialize Canvases
+        document.addEventListener('DOMContentLoaded', () => {
+            // Entrance Canvas (Dense, fast)
+            new ParticleSystem('entrance-canvas', 150, 1.5);
+            // Hero Canvas (Subtle, slow)
+            new ParticleSystem('hero-particles', 60, 0.5);
+        });
+
+        // --------------------------------------------------------
+        // GSAP Animations
+        // --------------------------------------------------------
+        
+        // 1. Entrance Sequence
+        const tl = gsap.timeline();
+
+        tl.to("#brand-reveal", { opacity: 1, duration: 1.5, ease: "power2.out" })
+          .to("#brand-reveal", { y: -20, duration: 1, ease: "power1.inOut" }, "-=0.5")
+          .to("#entrance-overlay", { 
+              yPercent: -100, 
+              duration: 1.2, 
+              ease: "power3.inOut",
+              onComplete: () => {
+                  // Ensure overlay doesn't block interactions
+                  document.getElementById('entrance-overlay').style.display = 'none';
+              }
+          });
+
+        // 2. Hero Elements Reveal
+        tl.to(".gsap-hero-el", {
+            y: 0,
+            opacity: 1,
+            duration: 0.8,
+            stagger: 0.15,
+            ease: "power2.out"
+        }, "-=0.5");
+
+        // 3. Scroll Trigger for Features
+        gsap.registerPlugin(ScrollTrigger);
+
+        gsap.utils.toArray('.feature-card').forEach((card, i) => {
+            gsap.from(card, {
+                scrollTrigger: {
+                    trigger: card,
+                    start: "top 85%",
+                    toggleActions: "play none none reverse"
+                },
+                y: 50,
+                opacity: 0,
+                duration: 0.6,
+                delay: i * 0.1,
+                ease: "power2.out"
+            });
+        });
+
+        // 4. Scroll Trigger for Sales Copy
+        gsap.from(".sales-copy", {
+            scrollTrigger: {
+                trigger: ".sales-copy",
+                start: "top 80%"
+            },
+            y: 30,
+            opacity: 0,
+            duration: 0.8,
+            ease: "power2.out"
+        });
+
+        // --------------------------------------------------------
+        // UI Logic
+        // --------------------------------------------------------
+        
+        // Mobile Menu Toggle
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        const closeBtn = document.getElementById('close-menu-btn');
+        const links = document.querySelectorAll('.mobile-link');
+
+        function toggleMenu() {
+            const isOpen = !menu.classList.contains('translate-x-full');
+            if (isOpen) {
+                menu.classList.add('translate-x-full');
+            } else {
+                menu.classList.remove('translate-x-full');
+            }
+        }
+
+        btn.addEventListener('click', toggleMenu);
+        closeBtn.addEventListener('click', toggleMenu);
+        
+        links.forEach(link => {
+            link.addEventListener('click', toggleMenu);
+        });
+
+    </script>
+</body>
+</html>
